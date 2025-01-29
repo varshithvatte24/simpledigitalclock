@@ -1,0 +1,73 @@
+
+<!-- Design By foolishdeveloper.com  -->
+<!DOCTYPE html> 
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+body{
+    margin-top: 200px;
+       height: 100vh;
+ 
+    background: #cc2b0e;
+}
+ #clockDisplay{
+	margin:0px auto;
+	width: 400px;
+	background-color: #1E1E1E;
+	border: 5px solid #ededee;
+  box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+	padding: 6px;
+    height: 100px;
+	color: #09b958;
+    padding-top: 30px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:60px;
+	font-width:bold;
+	text-align: center;
+   
+	letter-spacing: 2px;
+	
+}
+    </style>
+</head>
+<body>
+    <div id="clockDisplay" class="clockStyle"></div>
+  <script>
+  function renderTime(){
+	var currentTime = new Date();
+	var diem = "AM";
+	var h = currentTime.getHours();
+	var m = currentTime.getMinutes();
+	var s = currentTime.getSeconds();
+	
+	if(h == 0){
+		h = 12;
+	}else if(h > 12){
+		h = h - 12;
+		diem = "PM"
+	}
+	if(h < 10){
+		h = "0" + h;
+	}
+	if(m < 10){
+		m = "0" + m;
+	}
+	if(s < 10){
+		s = "0" + s;
+	}
+	var myClock = document.getElementById('clockDisplay');
+	myClock.textContent = h + ":" + m + ":" + s + " " + diem;
+	setTimeout('renderTime()', 1000); 
+}
+renderTime();
+  </script>
+
+</body>
+</html>
+
+
